@@ -72,7 +72,7 @@ class Mkv(Type):
            buf[1] == 0x45 and
            buf[2] == 0xDF and
            buf[3] == 0xA3):
-            return buf[5:64].find(b"matroska") > -1
+            return buf.find(b"matroska", 5, 64) > -1
 
 
 class Webm(Type):
@@ -94,7 +94,7 @@ class Webm(Type):
            buf[1] == 0x45 and
            buf[2] == 0xDF and
            buf[3] == 0xA3):
-            return buf[5:64].find(b"webm") > -1
+            return buf.find(b"webm", 5, 64) > -1
 
 
 class Mov(IsoBmff):
